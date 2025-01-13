@@ -1,6 +1,22 @@
 [run]
 source_pkgs = hummingbot
+
+source =
+        hummingbot/*
+        conf/*
+        controllers/*
+        scripts/*
 omit =
+        mock/*
+        hummingbot/connector/gateway/amm/*
+        hummingbot/connector/exchange/coinbase_advanced_trade/*
+        hummingbot/connector/exchange/ndax/*
+        hummingbot/connector/exchange/foxbit/*
+        hummingbot/connector/derivative/dydx_v4_perpetual/*
+        hummingbot/connector/gateway/clob_spot/data_sources/dexalot/*
+        hummingbot/strategy/amm_arb/*
+        hummingbot/core/gateway/*
+        hummingbot/strategy/amm_v3_lp/*
         hummingbot/core/gateway/*
         hummingbot/core/management/*
         hummingbot/client/config/config_helpers.py
