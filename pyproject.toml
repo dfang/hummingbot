@@ -28,3 +28,52 @@ combine_as_imports = true
 conda_env = "hummingbot"
 filter_files = true
 skip = ["setup.py"]
+
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["./test"]
+addopts = [
+    "-ra",
+    "--disable-warnings",
+    "--ignore=test/mock",
+    "--ignore=test/hummingbot/connector/derivative/dydx_v4_perpetual",
+    "--ignore=test/hummingbot/connector/gateway/amm",
+    "--ignore=test/hummingbot/connector/exchange/coinbase_advanced_trade",
+    "--ignore=test/hummingbot/connector/exchange/ndax",
+    "--ignore=test/hummingbot/connector/exchange/foxbit",
+    "--ignore=test/hummingbot/connector/gateway/clob_spot/data_sources/dexalot",
+    "--ignore=test/hummingbot/strategy/amm_arb",
+    "--ignore=test/hummingbot/core/gateway",
+    "--ignore=test/hummingbot/strategy/amm_v3_lp",
+    "--ignore=test/hummingbot/core/gateway",
+    "--ignore=test/hummingbot/core/management",
+    "--ignore=test/hummingbot/client/config/config_helpers.py",
+    "--ignore=test/hummingbot/client/config/conf_migration.py",
+    "--ignore=test/hummingbot/client/config/security.py",
+    "--ignore=test/hummingbot/client/hummingbot_application.py",
+    "--ignore=test/hummingbot/client/command",
+    "--ignore=test/hummingbot/client/settings.py",
+    "--ignore=test/hummingbot/client/ui/completer.py",
+    "--ignore=test/hummingbot/client/ui/layout.py",
+    "--ignore=test/hummingbot/client/tab",
+    "--ignore=test/hummingbot/client/ui/parser.py",
+    "--ignore=test/hummingbot/connector/derivative/position.py",
+    "--ignore=test/hummingbot/connector/exchange/bitfinex*",
+    "--ignore=test/hummingbot/connector/exchange/foxbit*",
+    "--ignore=test/hummingbot/connector/derivative/dydx_v4_perpetual",
+    "--ignore=test/hummingbot/connector/derivative/dydx_v4_perpetual/data_sources",
+    "--ignore=test/hummingbot/connector/exchange/injective_v2/account_delegation_script.py",
+    "--ignore=test/hummingbot/connector/exchange/paper_trade*",
+    "--ignore=test/hummingbot/connector/gateway",
+    "--ignore=test/hummingbot/connector/test_support",
+    "--ignore=test/hummingbot/core/utils/gateway_config_utils.py",
+    "--ignore=test/hummingbot/core/utils/kill_switch.py",
+    "--ignore=test/hummingbot/core/utils/wallet_setup.py",
+    "--ignore=test/hummingbot/connector/mock*",
+    "--ignore=test/hummingbot/strategy/start.py",
+    "--ignore=test/hummingbot/strategy/dev*",
+    "--ignore=test/hummingbot/user/user_balances.py",
+    "--ignore=test/hummingbot/connector/exchange/cube/cube_ws_protobufs",
+    "--ignore=test/hummingbot/strategy_v2/backtesting"
+]
