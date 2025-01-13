@@ -36,6 +36,7 @@ testpaths = ["./test"]
 addopts = [
     "-ra",
     "--disable-warnings",
+    "--ignore=.pixi/envs/test",
     "--ignore=test/mock",
     "--ignore=test/hummingbot/connector/derivative/dydx_v4_perpetual",
     "--ignore=test/hummingbot/connector/gateway/amm",
