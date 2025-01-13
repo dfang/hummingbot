@@ -1,0 +1,118 @@
+[project]
+name = "hummingbot"
+description = "Open source software that helps you create and deploy high-frequency crypto trading bots"
+homepage = "https://hummingbot.org/"
+repository = "https://github.com/hummingbot/hummingbot"
+documentation = "https://hummingbot.org/docs/"
+authors = ["Hummingbot Foundation <dev@hummingbot.org>"]
+license = "Apache-2.0"
+channels = ["conda-forge", "main", "r", "msys2"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+#version = "0.1.0"
+
+# will update later
+[system-requirements]
+
+# will update later
+[host-dependencies]
+
+[tasks]
+test = "pixi run -e test make test"
+lint = "pixi run -e lint pre-commit"
+
+[dependencies]
+python = "3.10.16"
+cython = "3.0.11"
+pip = "*"
+bidict = "*"
+nomkl = "*"
+#numpy = "1.26.4"
+#numpy-base = "1.26.4"
+numpy = "*"
+pandas = "1.5.3"
+prompt_toolkit = "3.0.20.*"
+pydantic = "1.10.4"
+scipy = "1.10.1.*"
+sqlalchemy = "1.4.*"
+tabulate = "==0.8.9"
+ujson = "==5.7.0"
+zlib = "*"
+
+[target.osx-64.dependencies]
+rust = "*" # osx-64 need this to build py_ed25519_zebra_bindings which is a substrate_interface dependency, linux-64 not require this package, and docker container is built in linux, this could dramatically reduce the docker image to 700MB
+
+[feature.test.dependencies]
+coverage = "*"
+nose = "1.3.7.*"
+nose-exclude = "*"
+
+[feature.lint]
+dependencies = { pre-commit = "*"}
+pypi-dependencies = { flake8 = "==3.7.9" }
+
+[pypi-dependencies]
+pandas_ta = "==0.3.14b0"
+coinbase-advanced-py = "==1.8.2"
+aiohttp = "==3.*"
+aioprocessing = "==2.0"
+aioresponses = "*"
+aiounittest = "*"
+appdirs = "==1.4.3"
+async-timeout = "*"
+appnope = "==0.1.3"
+base58 = "==2.1.1"
+cachetools = "==4.0.0"
+commlib-py = "==0.10.6"
+#cryptography = "==3.4.7"
+cryptography = "*"
+pyopenssl = "==21.0.0"
+asyncssh = "==2.13.1"
+diff-cover = "*"
+#docker = "==5.0.3"
+#commlib-py = "*"
+eth-abi = "==4.0.0"
+eth-account = "==0.8.0"
+eth-keys = "*"
+eth-rlp = "*"
+eth-utils = "==2.2.0"
+eip712-structs = "==1.1.0"
+dotmap = "==1.3.30"
+#flake8 = "==3.7.9"
+#pre-commit = "==2.18.1"
+gql = "*"
+grpcio-tools = "*"
+hexbytes = "*"
+importlib-metadata = "==0.23"
+injective-py = "==1.6.*"
+jsonpickle = "==3.0.1"
+mypy-extensions = "==0.4.3"
+msgpack = "*"
+pandas-ta = "==0.3.14b0"
+pyyaml = "==6.0.2"
+protobuf = "==5.29.2"
+psutil = "==5.7.2"
+ptpython = "==3.0.20"
+#pyjwt = "==2.8.0"
+pyperclip = "==1.7.0"
+python-telegram-bot = "==12.8"
+requests = "==2.*"
+rsa = "==4.7"
+ruamel-yaml = "==0.16.10"
+signalr-client-aio = "==0.0.1.6.2"
+substrate-interface = "==1.6.2"
+solders = "==0.1.4"
+vega-python-sdk = "==0.1.3"
+web3 = ">=6.2.0, <7.0.0"
+#websockets = "==11.0.3"
+websockets = "*"
+yarl = "==1.*"
+#xrpl-py = "==3.0.0"
+xrpl-py = "*"
+dydx-v3-python = { git = "https://github.com/konichuvak/dydx-v3-python.git", rev = "f377631ca7ff30c8d740293b0872bc216cfa23cf" }
+v4-proto = "==7.0.5"
+
+[environments]
+# Create a custom environment which only has the `lint` feature (numpy isn't part of that env).
+lint = {features = ["lint"], no-default-feature = true}
+# test = ["test"]
+test = {features = ["test"]}
